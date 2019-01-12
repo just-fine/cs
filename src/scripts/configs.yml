@@ -1,6 +1,6 @@
 
 templates:
-  vue: 'https://github.com/just-fine/vue-coffee/archive/v0.1.0.zip'
+  vue: 'https://github.com/just-fine/vue-coffee/archive/v0.1.1.zip'
   sails: 'https://github.com/just-fine/sails-coffee/archive/v0.1.0.zip'
 
 
