@@ -5,11 +5,11 @@ configs = require '../scripts/configs.yml'
 
 { templates } = yaml.load configs
 
-index = 0
+count = 0
 print_project = (key, url) ->
-  index = index + 1
+  count = count + 1
   url = url.replace /\.zip/, ''
-  index = chalk.blueBright "#{index})"
+  index = chalk.blueBright "#{count})"
   version = chalk.cyan (url.split '/').reverse()[0]
   name = chalk.cyan.bold "#{key}"
   console.log " #{index} #{name}, version: #{version}"
