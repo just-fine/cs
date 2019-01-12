@@ -22,6 +22,7 @@
   
   want to add more templates? leave a [issue](https://github.com/just-fine/cs/issues/new).
 
+<br/>
 
 ## license
-MIT
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fjust-fine%2Fcs?ref=badge_large" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjust-fine%2Fcs.svg?type=large"/></a>
