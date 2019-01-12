@@ -37,7 +37,7 @@ find_link = (type) ->
 print_success = (type, name) ->
   to = path.join base, name, 'package.json'
   try
-    execa.shellSync "cd #{name} && rm -rf .netlify .travis.yml README.md && echo '# #{name}' > README.md"
+    execa.shellSync "cd #{name} && rm -rf .netlify .travis.yml .github now.json"
     if fs.existsSync to
       pkg = JSON.parse fs.readFileSync to, 'utf-8'
       pkg = Object.assign {}, pkg, {
