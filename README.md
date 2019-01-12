@@ -5,13 +5,13 @@
 <br/>
 
 ## usage
-&nbsp;make sure you have Node.js (>8.0).
+&emsp;make sure you have Node.js (>8.0).
 
-&nbsp;run `npx @fine.sh/cs init` to complete.
+&emsp;run `npx @fine.sh/cs init` to complete.
 
-&nbsp;e.g. you want to write Vue with coffee script, just run `npx @fine.sh/cs init vue`.
+&emsp;e.g. you want to write Vue with coffee script, just run `npx @fine.sh/cs init vue`.
 
-> if you want install to global: `npm i -g @fine.sh/cs`.
+>&emsp;if you want install to global: `npm i -g @fine.sh/cs`.
 
   - `cs init`: create a project.
   - `cs ls`: show all project type.
