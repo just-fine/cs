@@ -14,7 +14,9 @@
 
   - `cs init`: create a project.
   - `cs ls`: show all project type.
-  
+
+<br/>
+
 >if you want install to global: `npm i -g @fine.sh/cs`.
 
 <br/>
