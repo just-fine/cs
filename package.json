@@ -1,0 +1,62 @@
+{
+  "name": "@fine.sh/cs",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "install coffee style of popular framework",
+  "preferGlobal": true,
+  "main": "dist/bin/cs.js",
+  "author": "WittBulter (nanazuimeng123@gmail.com)",
+  "homepage": "https://github.com/just-fine/cs#readme",
+  "scripts": {
+    "start": "npm run pre_build && webpack --config temp/w.js -p -w",
+    "build": "npm run pre_build && webpack --config temp/w.js -p",
+    "pre_build": "rm -rf temp && coffee -co temp/w.js scripts/webpack.coffee",
+    "deploy": "npm run build && npm publish --access=public",
+    "clean": "rm -rf dist temp",
+    "commit": "commitizen init cz-conventional-changelog --save --save-exact",
+    "commitmsg": "commitlint -e $GIT_PARAMS"
+  },
+  "bin": {
+    "cs": "dist/bin/cs.js"
+  },
+  "files": [
+    "LICENSE",
+    "READNE.md",
+    "dist/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/just-fine/cs"
+  },
+  "bugs": {
+    "url": "https://github.com/just-fine/cs/issues"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^7.1.2",
+    "coffee-loader": "^0.9.0",
+    "coffeescript": "^2.3.2",
+    "commitizen": "^3.0.5",
+    "commitlint": "^7.2.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.3.1",
+    "raw-loader": "^1.0.0",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "download-git-repo": "^1.1.0",
+    "execa": "^1.0.0",
+    "inquirer": "^6.2.1",
+    "js-yaml": "^3.12.1",
+    "node-emoji": "^1.8.1",
+    "ora": "^3.0.0",
+    "update-notifier": "^2.5.0"
+  }
+}
