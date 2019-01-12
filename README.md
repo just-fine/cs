@@ -11,10 +11,11 @@
 
 &emsp;e.g. you want to write Vue with coffee script, just run `npx @fine.sh/cs init vue`.
 
->&emsp;if you want install to global: `npm i -g @fine.sh/cs`.
 
   - `cs init`: create a project.
   - `cs ls`: show all project type.
+  
+>if you want install to global: `npm i -g @fine.sh/cs`.
 
 <br/>
 
