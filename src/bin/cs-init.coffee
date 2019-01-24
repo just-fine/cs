@@ -7,7 +7,7 @@ commander.parse process.argv
 project_type = commander.args[0]
 
 if not project_type
-  console.log chalk.yellow " #{emoji.get 'thinking_face'} you need to specify a project type. like: 'cs init rails'."
+  console.log chalk.yellow " #{emoji.get 'thinking_face'} you need to specify a project type. like: 'cs init sails'."
   console.log chalk.cyan " #{emoji.get 'point_right'} use 'cs ls' to view all types?"
   process.exit 1
 
