@@ -25,7 +25,8 @@
 
   1. [vue](https://github.com/just-fine/vue-coffee)
   2. [sails](https://github.com/just-fine/sails-coffee)
-  
+  3. [micro](https://github.com/just-fine/micro-coffee)
+
   want to add more templates? leave a [issue](https://github.com/just-fine/cs/issues/new).
 
 <br/>

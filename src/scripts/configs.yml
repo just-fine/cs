@@ -2,6 +2,7 @@
 templates:
   vue: 'https://github.com/just-fine/vue-coffee/archive/v0.1.1.zip'
   sails: 'https://github.com/just-fine/sails-coffee/archive/v0.2.1.zip'
+  micro: 'https://github.com/just-fine/micro-coffee/archive/v0.1.0.zip'
 
 
 
