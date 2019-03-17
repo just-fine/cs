@@ -1,17 +1,15 @@
 chalk = require 'chalk'
-yaml = require 'js-yaml'
 emoji = require 'node-emoji'
-configs = require '../scripts/configs.yml'
-
-{ templates } = yaml.load configs
+resources = require '../scripts/resources'
 
 count = 0
-print_project = (key, url) ->
+print_project = (name, repo_name) ->
   count = count + 1
-  url = url.replace /\.zip/, ''
+  author = repo_name.split('/')[0]
   index = chalk.blueBright "#{count})"
-  version = chalk.cyan (url.split '/').reverse()[0]
-  name = chalk.cyan.bold "#{key}"
-  console.log " #{index} #{name}, version: #{version}"
+  console.log " #{index} #{name}, author: #{author}"
 
-print_project key, url for key, url of templates
+do () ->
+  projects = await resources.get_projects()
+  print_project name, repo_name for name, repo_name of projects
+  console.log chalk.green '\n use "cs init {template_name}" to install.'

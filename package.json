@@ -1,6 +1,6 @@
 {
   "name": "@fine.sh/cs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "description": "install coffee style of popular framework",
   "preferGlobal": true,
@@ -11,7 +11,7 @@
     "start": "yarn run pre_build && webpack --config temp/w.js -p -w",
     "build": "yarn run pre_build && webpack --config temp/w.js -p",
     "pre_build": "rm -rf temp && coffee -co temp/w.js scripts/webpack.coffee",
-    "deploy": "yarn run build && yarn publish --access=public",
+    "prepublish": "yarn run build",
     "clean": "rm -rf dist temp"
   },
   "bin": {
@@ -44,6 +44,7 @@
     "inquirer": "^6.2.1",
     "js-yaml": "^3.12.1",
     "node-emoji": "^1.8.1",
+    "node-fetch": "^2.3.0",
     "ora": "^3.0.0",
     "update-notifier": "^2.5.0"
   }

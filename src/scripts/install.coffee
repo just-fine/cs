@@ -3,18 +3,17 @@ ora = require 'ora'
 path = require 'path'
 execa = require 'execa'
 chalk = require 'chalk'
-yaml = require 'js-yaml'
 emoji = require 'node-emoji'
 inquirer = require 'inquirer'
 download = require 'download-git-repo'
-configs = require './configs.yml'
+resources = require '../scripts/resources'
 base = do process.cwd
 
 promps = [
   {
     type: 'input'
     name: 'project_name'
-    message: 'project name:'
+    message: 'your project name?'
     validate: (txt) ->
       return false if not txt
       is_exist = fs.existsSync path.join base, txt
@@ -25,8 +24,7 @@ promps = [
 ]
 
 find_link = (type) ->
-  { templates } = yaml.load configs
-  url = templates[type]
+  url = await resources.get_download_url(type)
   return "direct:#{url}" if url
 
   console.log chalk.yellow " #{emoji.get 'scream_cat'} not project of type #{type} was found."
@@ -52,11 +50,11 @@ print_success = (type, name) ->
   process.exit 1
 
 install = (type) ->
-  url = find_link type
   try
+    wait = new ora
+    url = await find_link type
     answer = await inquirer.prompt promps
     to = path.join base, answer.project_name
-    wait = new ora
     wait.start "download #{type} template, it may take some time..."
     download url, to, { clone: false }, (err) ->
       if not err
@@ -65,7 +63,7 @@ install = (type) ->
         process.exit 1
       wait.fail err
       process.exit 1
-      
+
   catch err
     console.log err
     process.exit 1
