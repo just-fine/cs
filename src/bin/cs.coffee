@@ -1,15 +1,24 @@
-commander = require 'commander'
-notifier = require 'update-notifier'
+arg = require 'arg'
 pkg = require '../../package.json'
+install = require '../scripts/install'
+list = require '../scripts/list'
 
-notifier { pkg, updateCheckInterval: 1 }
-  .notify { isGlobal: true }
+args = arg({
+  '--help': Boolean,
+  '--version': Boolean,
+  '-h': '--help'
+})
 
+if args._[0] is 'init'
+  do install
 
-commander
-  .version pkg.version, '-v, --version'
-  .command('init', 'init a project').alias('i')
-  .command('ls', 'show all project type').alias('l')
-  .usage '<command> [options]'
-  .parse(process.argv)
+if args._[0] is 'ls'
+  do list
+
+#commander
+#  .version pkg.version, '-v, --version'
+#  .command('init', 'init a project').alias('i')
+#  .command('ls', 'show all project type').alias('l')
+#  .usage '<command> [options]'
+#  .parse(process.argv)
 

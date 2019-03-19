@@ -1,5 +1,5 @@
+ora = require 'ora'
 chalk = require 'chalk'
-emoji = require 'node-emoji'
 resources = require '../scripts/resources'
 
 count = 0
@@ -9,7 +9,13 @@ print_project = (name, repo_name) ->
   index = chalk.blueBright "#{count})"
   console.log " #{index} #{name}, author: #{author}"
 
-do () ->
+list = () ->
+  wait = new ora
+  wait.start('update projects, it may take some time..')
   projects = await resources.get_projects()
+  wait.stop()
+  wait.clear()
   print_project name, repo_name for name, repo_name of projects
-  console.log chalk.green '\n use "cs init {template_name}" to install.'
+  console.log chalk.green '\n use "cs init" to install.'
+
+module.exports = list

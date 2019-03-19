@@ -1,13 +1,10 @@
 fetch = require 'node-fetch'
-yaml = require 'js-yaml'
-projects_url = 'https://raw.githubusercontent.com/just-fine/cs/master/projects.yml'
+projects_url = 'https://raw.githubusercontent.com/just-fine/cs/master/projects.json'
 
 
 get_projects = () ->
   res = await fetch projects_url
-  text = await res.text()
-  projects = (yaml.load text).projects
-  projects
+  await res.json()
 
 get_download_url = (template_type) ->
   projects = await get_projects()

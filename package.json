@@ -37,15 +37,11 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
+    "arg": "^4.1.0",
     "chalk": "^2.4.2",
-    "commander": "^2.19.0",
     "download-git-repo": "^1.1.0",
-    "execa": "^1.0.0",
     "inquirer": "^6.2.1",
-    "js-yaml": "^3.12.1",
-    "node-emoji": "^1.8.1",
     "node-fetch": "^2.3.0",
-    "ora": "^3.0.0",
-    "update-notifier": "^2.5.0"
+    "ora": "^3.0.0"
   }
 }
