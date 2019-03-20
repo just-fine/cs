@@ -1,6 +1,6 @@
 {
   "name": "@fine.sh/cs",
-  "version": "0.3.0",
+  "version": "0.4.1",
   "license": "MIT",
   "description": "install coffee style of popular framework",
   "preferGlobal": true,
@@ -8,14 +8,15 @@
   "author": "WittBulter (nanazuimeng123@gmail.com)",
   "homepage": "https://github.com/just-fine/cs#readme",
   "scripts": {
-    "start": "yarn run pre_build && webpack --config temp/w.js -p -w",
-    "build": "yarn run pre_build && webpack --config temp/w.js -p",
-    "pre_build": "rm -rf temp && coffee -co temp/w.js scripts/webpack.coffee",
-    "prepublish": "yarn run build",
-    "clean": "rm -rf dist temp"
+    "start": "echo '#!/usr/bin/env coffee\nrequire(\"../src/bin/cs\")' > dist/bin.js && chmod +x ./dist/bin.js",
+    "compile": "coffee --compile --output dist/ src/",
+    "ncc": "ncc build ./dist/bin/cs.js && echo '#!/usr/bin/env node\nrequire(\"./index.js\")' > dist/bin.js",
+    "ncc:clear": "cd ./dist && rm -rf ./bin ./config-chain ./scripts",
+    "build": "rm -rf dist && yarn run compile && yarn run ncc && yarn run ncc:clear",
+    "release": "yarn run build && yarn publish --access public"
   },
   "bin": {
-    "cs": "dist/bin/cs.js"
+    "cs": "dist/bin.js"
   },
   "files": [
     "LICENSE",
@@ -34,9 +35,7 @@
     "coffeescript": "^2.3.2",
     "raw-loader": "^1.0.0",
     "webpack": "^4.28.4",
-    "webpack-cli": "^3.2.1"
-  },
-  "dependencies": {
+    "webpack-cli": "^3.2.1",
     "arg": "^4.1.0",
     "chalk": "^2.4.2",
     "download-git-repo": "^1.1.0",

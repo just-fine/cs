@@ -21,15 +21,21 @@ args = arg {
   '-v': '--version'
 }
 
-console.log args
-
-
-if args._[0] and commands[args._[0]]
-  do commands[args._[0]]
-
-if args['--version']
-  puts "v#{pkg.version}"
-
-if args['--help']
+helper = () ->
   puts "#{chalk.cyan 'init'} <command> -- create a project"
   puts "#{chalk.cyan 'ls'}   <command> -- show all projects"
+
+do () ->
+  if args._[0] and commands[args._[0]]
+    return do commands[args._[0]]
+
+  if args['--version']
+    return puts "v#{pkg.version}"
+
+  if args['--help']
+    return do helper
+
+  do helper
+
+
+

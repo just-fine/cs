@@ -4,20 +4,27 @@
 
 <br/>
 
+## feature
+
+- no dependency packages.
+
+- fast.
+
+- always latest version.
+
+<br/>
+
 ## usage
 &emsp;make sure you have Node.js (>8.0).
 
 &emsp;run `npx @fine.sh/cs init` to complete.
 
-&emsp;e.g. you want to write Vue with coffee script, just run `npx @fine.sh/cs init vue`.
+>if you want install to global: `npm i -g @fine.sh/cs`.
 
+**commands:**
 
   - `cs init`: create a project.
   - `cs ls`: show all project type.
-
-<br/>
-
->if you want install to global: `npm i -g @fine.sh/cs`.
 
 <br/>
 
