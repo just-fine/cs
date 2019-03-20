@@ -35,8 +35,8 @@ find_link = (type) ->
   url = await resources.get_download_url(type)
   return "direct:#{url}" if url
 
-  console.log chalk.yellow " > not project of type #{type} was found."
-  console.log chalk.cyan " > use 'cs ls' to view all types?"
+  puts chalk.yellow "not project of type #{type} was found."
+  puts chalk.cyan "use 'cs ls' to view all types?"
   process.exit 1
 
 
@@ -53,8 +53,8 @@ print_success = (type, name) ->
   catch err
 
   console.log ''
-  console.log chalk.cyan " > #{type} project has been successfully installed."
-  console.log chalk.cyan " > enjoy coffee."
+  puts chalk.cyan "#{type} project has been successfully installed."
+  puts chalk.cyan "enjoy coffee."
   process.exit 1
 
 install = () ->

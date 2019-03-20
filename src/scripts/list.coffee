@@ -7,7 +7,7 @@ print_project = (name, repo_name) ->
   count = count + 1
   author = repo_name.split('/')[0]
   index = chalk.blueBright "#{count})"
-  console.log " #{index} #{name}, author: #{author}"
+  puts "#{index} #{name}, author: #{author}"
 
 list = () ->
   wait = new ora

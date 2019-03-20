@@ -1,24 +1,35 @@
 arg = require 'arg'
+chalk = require 'chalk'
 pkg = require '../../package.json'
 install = require '../scripts/install'
 list = require '../scripts/list'
+logo = chalk.blue ' > '
+global.puts = (args...) ->
+  console.log logo, args...
 
-args = arg({
-  '--help': Boolean,
-  '--version': Boolean,
+commands = {
+  init: install
+  i: install
+  list: list
+  ls: list
+}
+
+args = arg {
+  '--help': Boolean
   '-h': '--help'
-})
+  '--version': Boolean
+  '-v': '--version'
+}
 
-if args._[0] is 'init'
-  do install
+console.log args
 
-if args._[0] is 'ls'
-  do list
 
-#commander
-#  .version pkg.version, '-v, --version'
-#  .command('init', 'init a project').alias('i')
-#  .command('ls', 'show all project type').alias('l')
-#  .usage '<command> [options]'
-#  .parse(process.argv)
+if args._[0] and commands[args._[0]]
+  do commands[args._[0]]
 
+if args['--version']
+  puts "v#{pkg.version}"
+
+if args['--help']
+  puts "#{chalk.cyan 'init'} <command> -- create a project"
+  puts "#{chalk.cyan 'ls'}   <command> -- show all projects"
