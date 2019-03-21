@@ -1,6 +1,6 @@
 {
   "name": "@fine.sh/cs",
-  "version": "0.4.1-canary.2",
+  "version": "0.4.1-canary.3",
   "license": "MIT",
   "description": "install coffee style of popular framework",
   "preferGlobal": true,
