@@ -1,6 +1,6 @@
 {
   "name": "@fine.sh/cs",
-  "version": "0.4.1-canary.0",
+  "version": "0.4.1-canary.1",
   "license": "MIT",
   "description": "install coffee style of popular framework",
   "preferGlobal": true,
@@ -13,6 +13,7 @@
     "ncc": "ncc build ./dist/bin/cs.js && echo '#!/usr/bin/env node\nrequire(\"./index.js\")' > dist/bin.js",
     "ncc:clear": "cd ./dist && rm -rf ./bin ./config-chain ./scripts",
     "build": "rm -rf dist && yarn run compile && yarn run ncc && yarn run ncc:clear",
+    "postinstall": "node ./libs/welcome.js",
     "release": "yarn run build && yarn publish --access public"
   },
   "bin": {
@@ -21,6 +22,7 @@
   "files": [
     "LICENSE",
     "READNE.md",
+    "libs",
     "dist/"
   ],
   "repository": {
